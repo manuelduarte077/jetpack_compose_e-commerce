@@ -5,20 +5,18 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.manuelduarte077.composeecommerce.R
-import com.manuelduarte077.composeecommerce.component.LogoApp
+import com.manuelduarte077.composeecommerce.component.*
 
 @Composable
 fun LoginScreen() {
@@ -36,66 +34,21 @@ fun LoginScreen() {
                 .fillMaxWidth()
         ) {
             item {
-                Spacer(modifier = Modifier.padding(30.dp))
-
-                // Llamamos la parte del logo
+                TextPadding(valuePadding = 25)
+                // parte del logo
                 LogoApp()
 
-                Spacer(modifier = Modifier.padding(20.dp))
-                OutlinedTextField(
-                    value = emailValue.value,
-                    onValueChange = { emailValue.value = it },
-                    label = {
-                        Text(
-                            text = "Email",
-                            color = MaterialTheme.colors.onBackground
-                        )
-                    },
-                    singleLine = true
-                )
+                TextPadding(valuePadding = 5)
+                TextFieldBase("Email", emailValue)
 
-                Spacer(modifier = Modifier.padding(10.dp))
-                OutlinedTextField(
-                    value = passwordValue.value,
-                    onValueChange = { passwordValue.value = it },
-                    trailingIcon = {
-                        IconButton(onClick = { passwordVisible.value = !passwordVisible.value }) {
-                            Icon(
-                                painter = painterResource(
-                                    id = R.drawable.ic_baseline_remove_red_eye_24
-                                ),
-                                contentDescription = "Icono para ver password",
-                                tint = if (passwordVisible.value) MaterialTheme.colors.primary else Color.Gray
-                            )
+                TextPadding(valuePadding = 5)
+                TextFieldPass("Password", passwordValue, passwordVisible)
 
-                        }
-                    },
-                    label = {
-                        Text(
-                            text = "Password",
-                            color = MaterialTheme.colors.onBackground
-                        )
-                    },
-                    singleLine = true,
-                    visualTransformation = if (passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
-                )
-                Spacer(modifier = Modifier.padding(20.dp))
-                Button(onClick = { }) {
-                    Text(
-                        text = "Login",
-                        fontSize = 20.sp
-                    )
-                }
+                TextPadding(valuePadding = 20)
+                ButtonBase(text = "Login", onClick = { })
 
-                Spacer(modifier = Modifier.padding(20.dp))
-                Text(
-                    text = "Account Create",
-                    modifier = Modifier.clickable(
-                        onClick = {
-
-                        }
-                    )
-                )
+                TextPadding(valuePadding = 10)
+                TextClick(text = "Create Account", onClick = {})
             }
         }
     }

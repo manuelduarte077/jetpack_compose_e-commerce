@@ -12,13 +12,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.manuelduarte077.composeecommerce.component.LogoApp
+import com.manuelduarte077.composeecommerce.component.*
 
 @Composable
 fun SingUpScreen() {
+    val confirmPasswordValue = remember { mutableStateOf("") }
+    val nameValue = remember { mutableStateOf("") }
+    val lastNameValue = remember { mutableStateOf("") }
+    val phoneValue = remember { mutableStateOf("") }
     val emailValue = remember { mutableStateOf("") }
-    val passwordValue = remember { mutableStateOf("") }
     val passwordVisible = remember { mutableStateOf(false) }
+    val passwordValue = remember { mutableStateOf("") }
+    val confirmPasswordVisible = remember { mutableStateOf(false) }
 
     Scaffold(
         backgroundColor = MaterialTheme.colors.background
@@ -30,10 +35,34 @@ fun SingUpScreen() {
                 .fillMaxWidth()
         ) {
             item {
-                Spacer(modifier = Modifier.padding(30.dp))
+//                Spacer(modifier = Modifier.padding(10.dp))
+
                 // Llamamos la parte del logo
                 LogoApp()
-                Spacer(modifier = Modifier.padding(20.dp))
+
+                TextPadding(valuePadding = 5)
+                TextFieldBase("Name", nameValue)
+
+                TextPadding(valuePadding = 5)
+                TextFieldBase("Last Name", lastNameValue)
+
+                TextPadding(valuePadding = 5)
+                TextFieldBase("Phone", phoneValue)
+
+                TextPadding(valuePadding = 5)
+                TextFieldBase("Email", emailValue)
+
+                TextPadding(valuePadding = 5)
+                TextFieldPass("Password", passwordValue, passwordVisible)
+
+                TextPadding(valuePadding = 5)
+                TextFieldPass("Confirm Password", confirmPasswordValue, confirmPasswordVisible)
+
+                TextPadding(valuePadding = 20)
+                ButtonBase(text = "Register", onClick = { })
+
+                TextPadding(valuePadding = 5)
+                TextClick(text = "Login", onClick = {})
 
             }
         }
