@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import com.manuelduarte077.composeecommerce.R
 import com.manuelduarte077.composeecommerce.component.BottonBarApp
 import com.manuelduarte077.composeecommerce.component.TopBarApp
+import com.manuelduarte077.composeecommerce.fragment.CompaniesFragment
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -60,7 +61,7 @@ fun HomeScreen(navController: NavController) {
         }) {
         Crossfade(targetState = section.value) { section ->
             when (section) {
-                Section.Companies -> Text(text = "Compañias")
+                Section.Companies -> CompaniesFragment(navController)
                 Section.Explorer -> Text(text = "Explorar")
                 Section.Orders -> Text(text = "Carrito")
                 Section.Profile -> Text(text = "Perfil")

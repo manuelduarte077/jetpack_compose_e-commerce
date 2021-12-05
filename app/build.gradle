@@ -60,6 +60,8 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
+    implementation "com.google.accompanist:accompanist-pager:0.20.2"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.21.3-beta"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
