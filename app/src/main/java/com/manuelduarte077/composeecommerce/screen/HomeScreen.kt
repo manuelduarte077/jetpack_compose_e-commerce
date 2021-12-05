@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import com.manuelduarte077.composeecommerce.R
 import com.manuelduarte077.composeecommerce.component.BottonBarApp
+import com.manuelduarte077.composeecommerce.component.TopBarApp
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -19,7 +20,39 @@ fun HomeScreen(navController: NavController) {
 
     Scaffold(
         backgroundColor = MaterialTheme.colors.background,
+        topBar = {
+            Crossfade(targetState = section.value) { section ->
+                when (section) {
+                    Section.Companies -> TopBarApp(
+                        "Restaurantes",
+                        "Hola 2",
+                        R.drawable.ic_baseline_lightbulb_24,
+                        onIconClick = {}
+                    )
+                    Section.Explorer -> TopBarApp(
+                        "Categorias",
+                        "Categorias Principales",
+                        R.drawable.ic_baseline_search_24,
+                        onIconClick = {}
+                    )
+                    Section.Orders -> TopBarApp(
+                        "Carrito",
+                        "Productos adquiridos",
+                        R.drawable.ic_baseline_filter_list_24,
+                        onIconClick = {}
+                    )
+                    Section.Profile -> TopBarApp(
+                        "Perfil",
+                        "Datos Personales",
+                        R.drawable.ic_baseline_logout_24,
+                        onIconClick = {}
+                    )
+                }
+            }
+
+        },
         bottomBar = {
+
             BottonBarApp(
                 items = navItems,
                 currentSection = section.value,
