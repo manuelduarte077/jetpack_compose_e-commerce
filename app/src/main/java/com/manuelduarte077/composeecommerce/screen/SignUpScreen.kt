@@ -1,8 +1,6 @@
 package com.manuelduarte077.composeecommerce.screen
 
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -11,11 +9,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.manuelduarte077.composeecommerce.component.*
+import com.manuelduarte077.composeecommerce.navigation.Screen
 
 @Composable
-fun SingUpScreen() {
+fun SignUpScreen(navController: NavController) {
     val confirmPasswordValue = remember { mutableStateOf("") }
     val nameValue = remember { mutableStateOf("") }
     val lastNameValue = remember { mutableStateOf("") }
@@ -35,7 +34,6 @@ fun SingUpScreen() {
                 .fillMaxWidth()
         ) {
             item {
-//                Spacer(modifier = Modifier.padding(10.dp))
 
                 // Llamamos la parte del logo
                 LogoApp()
@@ -62,7 +60,13 @@ fun SingUpScreen() {
                 ButtonBase(text = "Register", onClick = { })
 
                 TextPadding(valuePadding = 5)
-                TextClick(text = "Login", onClick = {})
+                TextClick(text = "Login", onClick = {
+                    navController.navigate(Screen.LoginScreen.route){
+                        popUpTo(Screen.SignUpScreen.route){
+                            inclusive = true
+                        }
+                    }
+                })
 
             }
         }
