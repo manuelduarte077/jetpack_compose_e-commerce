@@ -16,7 +16,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.manuelduarte077.composeecommerce.R
-import com.manuelduarte077.composeecommerce.component.TextPadding
+import com.manuelduarte077.composeecommerce.components.textfield.TextPadding
 
 @Composable
 fun CompaniesFragment(

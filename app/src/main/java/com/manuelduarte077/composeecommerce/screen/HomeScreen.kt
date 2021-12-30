@@ -9,9 +9,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import com.manuelduarte077.composeecommerce.R
-import com.manuelduarte077.composeecommerce.component.BottonBarApp
-import com.manuelduarte077.composeecommerce.component.TopBarApp
+import com.manuelduarte077.composeecommerce.components.buttons.BottonBarApp
+import com.manuelduarte077.composeecommerce.components.TopBarApp
 import com.manuelduarte077.composeecommerce.fragment.CompaniesFragment
+import com.manuelduarte077.composeecommerce.navigation.Screen
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -46,7 +47,13 @@ fun HomeScreen(navController: NavController) {
                         "Perfil",
                         "Datos Personales",
                         R.drawable.ic_baseline_logout_24,
-                        onIconClick = {}
+                        onIconClick = {
+                            navController.navigate(Screen.LoginScreen.route){
+                                popUpTo(Screen.HomeScreen.route){
+                                    inclusive = true
+                                }
+                            }
+                        }
                     )
                 }
             }

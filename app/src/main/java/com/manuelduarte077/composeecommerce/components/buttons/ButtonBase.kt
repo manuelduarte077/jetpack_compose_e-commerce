@@ -1,4 +1,4 @@
-package com.manuelduarte077.composeecommerce.component
+package com.manuelduarte077.composeecommerce.components.buttons
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text

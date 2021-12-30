@@ -1,15 +1,12 @@
-package com.manuelduarte077.composeecommerce.component
+package com.manuelduarte077.composeecommerce.components.buttons
 
-import android.widget.RemoteViews
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.manuelduarte077.composeecommerce.screen.Section
 
 @Composable

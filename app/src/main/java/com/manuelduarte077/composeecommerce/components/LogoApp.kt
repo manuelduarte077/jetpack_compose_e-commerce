@@ -1,4 +1,4 @@
-package com.manuelduarte077.composeecommerce.component
+package com.manuelduarte077.composeecommerce.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -27,7 +27,7 @@ fun LogoApp() {
         Image(
             painter = painterResource(id = R.drawable.applogo),
             contentDescription = "Logo de la App",
-            modifier = Modifier.size(100.dp)
+            modifier = Modifier.size(150.dp)
         )
         Text(
             text = "Delivery", fontSize = 30.sp,

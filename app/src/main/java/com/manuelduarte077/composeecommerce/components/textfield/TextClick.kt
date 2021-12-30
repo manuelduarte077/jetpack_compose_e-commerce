@@ -1,4 +1,4 @@
-package com.manuelduarte077.composeecommerce.component
+package com.manuelduarte077.composeecommerce.components.textfield
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.Text
