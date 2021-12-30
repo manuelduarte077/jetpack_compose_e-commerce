@@ -13,3 +13,7 @@
 - [ ] Card y Lista Categorias
 - [ ] Card y Lista Carrito
 - [ ] Tema oscuro
+
+
+![Login](doc/login.png) | ![signup](doc/signup.png) | ![Xamarin ScreenShots](doc/3.png) 
+-----------------------------------|------------------------------------|-----------------------------------
