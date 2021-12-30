@@ -1,85 +1,102 @@
 package com.manuelduarte077.composeecommerce.screen
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.manuelduarte077.composeecommerce.R
-import com.manuelduarte077.composeecommerce.components.buttons.BottonBarApp
-import com.manuelduarte077.composeecommerce.components.TopBarApp
+import com.manuelduarte077.composeecommerce.component.BottomBarApp
+import com.manuelduarte077.composeecommerce.component.TopBarApp
+import com.manuelduarte077.composeecommerce.fragment.CategoriesFragment
 import com.manuelduarte077.composeecommerce.fragment.CompaniesFragment
-import com.manuelduarte077.composeecommerce.navigation.Screen
+import com.manuelduarte077.composeecommerce.fragment.OrderCardFragment
+import com.manuelduarte077.composeecommerce.fragment.ProfileFragment
+
 
 @Composable
-fun HomeScreen(navController: NavController) {
-
+fun HomeScreen(naveController: NavController) {
     val navItems = Section.values().toList()
     val section = remember { mutableStateOf(Section.Companies) }
+    val currentTheme = isSystemInDarkTheme()
 
-    Scaffold(
-        backgroundColor = MaterialTheme.colors.background,
+    val toggleTheme: () -> Unit = {
+        if (currentTheme) setDayTheme() else setDarkTheme()
+    }
+    Scaffold(backgroundColor = MaterialTheme.colors.background,
+        modifier = Modifier.padding(15.dp),
         topBar = {
             Crossfade(targetState = section.value) { section ->
                 when (section) {
-                    Section.Companies -> TopBarApp(
-                        "Restaurantes",
-                        "Hola 2",
-                        R.drawable.ic_baseline_lightbulb_24,
-                        onIconClick = {}
-                    )
-                    Section.Explorer -> TopBarApp(
-                        "Categorias",
-                        "Categorias Principales",
-                        R.drawable.ic_baseline_search_24,
-                        onIconClick = {}
-                    )
-                    Section.Orders -> TopBarApp(
-                        "Carrito",
-                        "Productos adquiridos",
-                        R.drawable.ic_baseline_filter_list_24,
-                        onIconClick = {}
-                    )
-                    Section.Profile -> TopBarApp(
-                        "Perfil",
-                        "Datos Personales",
-                        R.drawable.ic_baseline_logout_24,
-                        onIconClick = {
-                            navController.navigate(Screen.LoginScreen.route){
-                                popUpTo(Screen.HomeScreen.route){
-                                    inclusive = true
-                                }
-                            }
-                        }
-                    )
+                    Section.Companies ->
+                        TopBarApp(
+                            "Restaurantes",
+                            "Pide tu comida para llevar",
+                            R.drawable.ic_baseline_lightbulb_24,
+                            onIconClick = { toggleTheme() })
+                    Section.Explore ->
+                        TopBarApp(
+                            "Categorias",
+                            "Categorias principales",
+                            R.drawable.ic_baseline_search_24,
+                            onIconClick = {})
+                    Section.Orders ->
+                        TopBarApp(
+                            "Carrito",
+                            "Productos adquiridos",
+                            R.drawable.ic_baseline_filter_list_24,
+                            onIconClick = {})
+                    Section.Profile ->
+                        TopBarApp(
+                            "Perfil",
+                            "Datos personales",
+                            R.drawable.ic_baseline_logout_24,
+                            onIconClick = {})
                 }
             }
-
         },
         bottomBar = {
-
-            BottonBarApp(
+            BottomBarApp(
                 items = navItems,
                 currentSection = section.value,
-                onSectionSelected = { section.value = it })
-        }) {
-        Crossfade(targetState = section.value) { section ->
+                onSectionSelected = { section.value = it }
+            )
+
+        }) { innerPadding ->
+        Crossfade(
+            modifier = Modifier.padding(innerPadding),
+            targetState = section.value
+        ) { section ->
             when (section) {
-                Section.Companies -> CompaniesFragment(navController)
-                Section.Explorer -> Text(text = "Explorar")
-                Section.Orders -> Text(text = "Carrito")
-                Section.Profile -> Text(text = "Perfil")
+                Section.Companies -> CompaniesFragment(naveController)
+                Section.Explore -> CategoriesFragment(naveController)
+                Section.Orders -> OrderCardFragment(naveController)
+                Section.Profile -> ProfileFragment(naveController)
             }
         }
     }
+
+}
+
+private fun setDayTheme() {
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+}
+
+private fun setDarkTheme() {
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
 }
 
 enum class Section(val icon: Int) {
     Companies(R.drawable.ic_baseline_home_24),
-    Explorer(R.drawable.ic_baseline_search_24),
+    Explore(R.drawable.ic_baseline_search_24),
     Orders(R.drawable.ic_baseline_shopping_cart_24),
-    Profile(R.drawable.ic_baseline_person_24),
+    Profile(R.drawable.ic_baseline_person_24)
 }

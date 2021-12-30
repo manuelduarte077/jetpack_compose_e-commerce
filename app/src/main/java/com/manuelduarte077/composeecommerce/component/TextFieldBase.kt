@@ -1,4 +1,4 @@
-package com.manuelduarte077.composeecommerce.components.textfield
+package com.manuelduarte077.composeecommerce.component
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 
 @Composable
-fun TextFieldBase(text: String, textValue: MutableState<String>) {
+fun TextFieldBase(text:String,textValue:MutableState<String>) {
     OutlinedTextField(
         value = textValue.value,
         onValueChange = { textValue.value = it },
@@ -19,4 +19,5 @@ fun TextFieldBase(text: String, textValue: MutableState<String>) {
         },
         singleLine = true
     )
+
 }

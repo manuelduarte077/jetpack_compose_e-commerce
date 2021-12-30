@@ -1,4 +1,4 @@
-package com.manuelduarte077.composeecommerce.components.buttons
+package com.manuelduarte077.composeecommerce.component
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -13,4 +13,5 @@ fun ButtonBase(text: String, onClick: () -> Unit) {
             fontSize = 20.sp
         )
     }
+
 }

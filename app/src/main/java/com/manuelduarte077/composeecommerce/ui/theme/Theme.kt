@@ -8,18 +8,18 @@ import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
     primary = primaryColor,
-    onPrimary = white,
+    onPrimary= white,
     background = backgroundDark,
-    onBackground = white,
+    onBackground= white,
     surface = surfaceDark,
     onSurface = white
 )
 
 private val LightColorPalette = lightColors(
     primary = primaryColor,
-    onPrimary = white,
-    background = white,
-    onBackground = black,
+    onPrimary= white,
+    background= white,
+    onBackground= black,
     surface = white,
     onSurface = black
 
@@ -34,7 +34,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun ComposeEcommerceTheme(
+fun TallerEcommerceTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {

@@ -9,14 +9,12 @@ val Teal200 = Color(0xFF03DAC5)
 
 val primaryColor = HexToColor.getColor("#ed4960")
 val white = Color.White
-
-val black =  HexToColor.getColor("#222a32")
-val backgroundDark =  HexToColor.getColor("#19202c")
-val surfaceDark =  HexToColor.getColor("#1c2439")
-
+val backgroundDark = HexToColor.getColor("#19202c")
+val black = HexToColor.getColor("#222a32")
+val surfaceDark = HexToColor.getColor("#1c2639")
 
 object HexToColor{
-    fun getColor (color: String): Color {
+    fun getColor(color: String):Color{
         return Color(android.graphics.Color.parseColor(color))
     }
 }
