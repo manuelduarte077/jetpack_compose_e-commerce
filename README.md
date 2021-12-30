@@ -8,11 +8,11 @@
 - [x] BottonBar
 - [x] TopBar
 - [x] Slides
-- [ ] Card y Lisa Tag
-- [ ] Card Lista Compañias
-- [ ] Card y Lista Categorias
-- [ ] Card y Lista Carrito
-- [ ] Tema oscuro
+- [x] Card y Lisa Tag
+- [x] Card Lista Compañias
+- [x] Card y Lista Categorias
+- [x] Card y Lista Carrito
+- [x] Tema oscuro
 
 
 ![Login](doc/login.png) | ![signup](doc/signup.png) | ![Xamarin ScreenShots](doc/3.png) 
