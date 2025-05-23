@@ -9,8 +9,7 @@ import composee_commerce.composeapp.generated.resources.pizza
 import composee_commerce.composeapp.generated.resources.sushi
 import org.jetbrains.compose.resources.DrawableResource
 
-
-class Category(
+data class Category(
     val id: Int,
     val categoryName: String = "",
     val categoryImage: DrawableResource
